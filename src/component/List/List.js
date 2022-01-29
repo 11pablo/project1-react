@@ -1,20 +1,22 @@
 import styles from './List.module.scss';
 import Column from '../Column/Column';
 import { useState } from 'react'; /*hooki nie używane w każdym komponęcie */
-import { useEffect } from 'react';
+import shortid from 'shortid';
 const List = () => {
-
+  const [value, setValue] = useState(''); /*pusty string,funkcja modyfikująca*/
     const [columns, setColumns] = useState([ /*referencja do wartości stanu,referencj  do modyfikacji*/
       { id: 1, title: 'Books', icon: 'book' },
       { id: 2, title: 'Movies', icon: 'film' },
       { id: 3, title: 'Games', icon: 'gamepad' }
     ]);
 
-    useEffect(() => {
-      setTimeout(() => {
-        setColumns([...columns, { id: 4, title: 'Test column'}]); /*dodanie 4 kolumny funkcja callback i czas w ms*/
-      }, 2000);
-    }, []);
+    const handleSubmit = e => {
+      e.preventDefault();
+      setColumns([...columns, { id: shortid(), title: value }]);  /*shortid -losowe id+ */
+      setValue('');
+    };
+
+    
 
     return (
       <div className={styles.list}>
@@ -25,6 +27,10 @@ const List = () => {
         <section className={styles.columns}>
           {columns.map(column => <Column key={column.id} title={column.title} icon={column.icon} />)}
         </section>
+        <form onSubmit={handleSubmit}> 
+          <input type="text" value={value} onChange={e => setValue(e.target.value)} />
+			    <button>Add column</button>
+        </form>
       </div>
     );
 
