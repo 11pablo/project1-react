@@ -1,0 +1,16 @@
+@import '../../styles/settings.scss';
+
+.columnForm{
+    text-align: center;
+    padding: 10px;
+}
+span{
+    margin: 10px;
+}
+@media (max-width: 767px) {
+    span, input{
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+    }
+}
