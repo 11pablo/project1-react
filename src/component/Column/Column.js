@@ -7,6 +7,8 @@ const Column = props => {
     //const cards = useSelector(state => state.cards.filter(card => card.columnId === props.id)); //jęśli właściwość karty columnId jest = id danej kolumny to
     const cards = useSelector(state => state.cards.filter(card => 
         card.columnId === props.id && card.title.toLowerCase().includes(state.searchString.toLowerCase())))
+    
+
     return (
         <article className={styles.column}>
             <h2 className={styles.title}><span className={styles.icon+ ' fa fa-' + props.icon}></span>{props.title}</h2>
@@ -15,9 +17,8 @@ const Column = props => {
                 {cards.map(card => <Card key={card.id} title={card.title} />)}
             </ul>
 
-            
-            {/* <CardForm columnId={cards.id} action={props.action} /> */}
             <CardForm columnId={props.id} />
+            
         </article>
     );
 };
