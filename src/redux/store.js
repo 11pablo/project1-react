@@ -15,6 +15,12 @@ export const getAllColumns = ({ columns }) => columns;
 
 export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
 
+export const addCard = payload => ({ type: 'ADD_CARD', payload});
+
+export const getSearchString = payload => ({type: 'UPDATE_SEARCHSTRING', payload});
+
+
+
 const reducer = (state, action) => {  // (aktualny stan, rodzaj akcji)
     switch(action.type) {  //dodaje nową kolumnę (nowy obiekt)jeśli action ma type o wartości add_column jeśli inny zwruci stan bez zmian
         case 'ADD_COLUMN':
