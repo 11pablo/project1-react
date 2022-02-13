@@ -11,6 +11,10 @@ import strContains from '../utils/strContains';
 export const getFilteredCards = ({ cards, searchString }, columnId) => cards
   .filter(card => card.columnId === columnId && strContains(card.title, searchString));
 
+export const getAllColumns = ({ columns }) => columns;
+
+export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
+
 const reducer = (state, action) => {  // (aktualny stan, rodzaj akcji)
     switch(action.type) {  //dodaje nową kolumnę (nowy obiekt)jeśli action ma type o wartości add_column jeśli inny zwruci stan bez zmian
         case 'ADD_COLUMN':

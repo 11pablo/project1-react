@@ -3,6 +3,7 @@ import { useState } from 'react';
 import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 import { useDispatch } from 'react-redux';
+import { addColumn } from '../../redux/store';
 
 const ColumnForm = () => {
     const dispatch = useDispatch();
@@ -10,7 +11,8 @@ const ColumnForm = () => {
     const [icon, setIcon] = useState('');
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch({ type: 'ADD_COLUMN', payload: { title, icon } });  //uruchamia akcję add column ,przekazuje rodzaj akcji oraz wartość nowej kolumny
+        dispatch(addColumn({title, icon}));
+        //dispatch({ type: 'ADD_COLUMN', payload: { title, icon } });  //uruchamia akcję add column ,przekazuje rodzaj akcji oraz wartość nowej kolumny
         //props.action({ title: title, icon: icon });
         setTitle('');
         setIcon('');
