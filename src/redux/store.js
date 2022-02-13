@@ -1,6 +1,15 @@
 import { createStore } from 'redux';
 import initialState from './initialState';
-import shortid from 'shortid'
+import shortid from 'shortid';
+import strContains from '../utils/strContains';
+
+//selectors
+//export const getFilteredCards = (state, columnId) => state.cards //ma dostać się do kart centrali które pasują do podanej kolumny i wyszukiwania
+  //.filter(card => card.columnId === columnId && card.title.toLowerCase().includes(state.searchString.toLowerCase())); // wyszukiwanie 
+/*export const getFilteredCards = ({ cards, searchString }, columnId) => cards // dodanie destrukturyzacji
+  .filter(card => card.columnId === columnId && card.title.toLowerCase().includes(searchString.toLowerCase()));*/
+export const getFilteredCards = ({ cards, searchString }, columnId) => cards
+  .filter(card => card.columnId === columnId && strContains(card.title, searchString));
 
 const reducer = (state, action) => {  // (aktualny stan, rodzaj akcji)
     switch(action.type) {  //dodaje nową kolumnę (nowy obiekt)jeśli action ma type o wartości add_column jeśli inny zwruci stan bez zmian
