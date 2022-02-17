@@ -19,7 +19,11 @@ export const addCard = payload => ({ type: 'ADD_CARD', payload});
 
 export const getSearchString = payload => ({type: 'UPDATE_SEARCHSTRING', payload});
 
-export const getListById = ({ lists }, listId) => lists.find(list => list.id === listId)
+export const getListById = ({ lists }, listId) => lists.find(list => list.id === listId);
+
+export const getColumnsByList = ({ columns }, listId ) => columns.filter(column => column.listId === listId);
+export const getAllLists = state => state.lists;
+
 
 
 

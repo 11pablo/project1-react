@@ -18,9 +18,10 @@ const NavBar = () => {
                     <li><Link to="/about">About</Link></li>
                 </ul>*/}
                 <ul> 
-                    <li><NavLink className={({ isActive }) => isActive && styles.linkActive} to="/">Home</NavLink></li>
-                    <li><NavLink className={({ isActive }) => isActive && styles.linkActive} to="/favorite">Favorite</NavLink></li>
-                    <li><NavLink className={({ isActive }) => isActive && styles.linkActive} to="/about">About</NavLink></li>
+                    <li><NavLink className={({ isActive }) => isActive ? styles.linkActive : ''} to="/">Home</NavLink></li>
+                    <li><NavLink className={({ isActive }) => isActive ? styles.linkActive : ''} to="/favorite">Favorite</NavLink></li>
+                    <li><NavLink className={({ isActive }) => isActive ? styles.linkActive : ''} to="/about">About</NavLink></li>
+
                 </ul>
                 
             </div>
