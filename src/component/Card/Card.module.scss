@@ -1,13 +1,33 @@
 @import '../../styles/settings.scss';
 
 .card {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
     position: relative;
     background: $color-light;
     border: 1px solid lighten($color-dark, 60%);
     padding: $base-size;
     margin: 0 0 $base-size 0;
     border-radius: $radius;
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
+    
 }
+
+.icon{
+    margin: 0;
+    padding: 0;
+}
+.buttonFavorite{
+    justify-content: center;
+    align-content: center;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    color: #cacfd9;
+    width: 20px;
+}
+.active{
+    color: red;
+}
+
