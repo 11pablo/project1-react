@@ -7,6 +7,7 @@ import PageTitle from '../PageTitle/PageTitle';
 const Favorite = () => {
   const cards = useSelector(state => getFavoriteCards(state));
   return (
+    
     <div className={styles.container}>
       <PageTitle>Favorite</PageTitle>
       <article className={styles.column}>
