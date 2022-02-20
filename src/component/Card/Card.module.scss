@@ -18,7 +18,16 @@
     margin: 0;
     padding: 0;
 }
+
+.iconContainer{
+    display: flex;
+    justify-content:space-between;
+    align-content: center;
+    width: 50px;
+}
+
 .buttonFavorite{
+    display: inline;
     justify-content: center;
     align-content: center;
     background-color: white;
@@ -27,8 +36,24 @@
     display: flex;
     color: #cacfd9;
     width: 20px;
+    height: 20px;
+}
+
+.buttonDelete{
+    border: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    display: flex;
+    color: #cacfd9;
+}
+
+.buttonDelete:hover{
+    color:$color-dark;
+    
 }
 .active{
-    color: red;
+    color: $color-warning;
 }
 

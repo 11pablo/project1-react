@@ -2,8 +2,9 @@ import styles from './SearchForm.module.scss';
 import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 import { useState, useEffect } from 'react';
-import { useDispatch,} from 'react-redux';
-import { getSearchString } from '../../redux/store';
+import { useDispatch} from 'react-redux';
+import { getSearchString } from '../../redux/searchStringRedux';
+//import { getSearchString } from '../../redux/store';
 
 
 const SearchForm = () => {
@@ -14,6 +15,8 @@ const SearchForm = () => {
         e.preventDefault();
         //dispatch({ type: 'UPDATE_SEARCHSTRING', payload: searchString });
         dispatch(getSearchString(searchString));
+        
+    
         
     }
 
